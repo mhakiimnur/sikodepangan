@@ -1,0 +1,194 @@
+openapi: 3.0.3
+info:
+  title: API Publik Kode Referensi Pangan
+  description: >
+    API publik untuk referensi pengkodean pangan, mencakup data
+    **Kelompok Pangan**, **Komoditas Pangan**, **Jenis Pangan**, dan **Level Pangan**.  
+    Semua response menggunakan wrapper standar:
+    ```json
+    {
+      "status": true,
+      "message": "success",
+      "data": [...]
+    }
+    ```
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local server
+
+tags:
+  - name: Kelompok Pangan
+    description: Referensi daftar kelompok pangan
+  - name: Komoditas Pangan
+    description: Referensi daftar komoditas pangan
+  - name: Jenis Pangan
+    description: Referensi daftar jenis pangan
+  - name: Level Pangan
+    description: Referensi daftar level pangan
+
+paths:
+  /kelompok-pangan:
+    get:
+      tags: [Kelompok Pangan]
+      summary: Daftar Kelompok Pangan
+      description: Ambil daftar kelompok pangan dengan filter, sort, dan pagination
+      parameters:
+        - $ref: "#/components/parameters/SearchParam"
+        - $ref: "#/components/parameters/SortByParam"
+        - $ref: "#/components/parameters/SortDirParam"
+        - $ref: "#/components/parameters/PageParam"
+        - $ref: "#/components/parameters/PerPageParam"
+      responses:
+        "200":
+          description: List kelompok pangan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseList"
+
+  /komoditas-pangan:
+    get:
+      tags: [Komoditas Pangan]
+      summary: Daftar Komoditas Pangan
+      parameters:
+        - $ref: "#/components/parameters/SearchParam"
+        - $ref: "#/components/parameters/SortByParam"
+        - $ref: "#/components/parameters/SortDirParam"
+        - $ref: "#/components/parameters/PageParam"
+        - $ref: "#/components/parameters/PerPageParam"
+      responses:
+        "200":
+          description: List komoditas pangan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseList"
+
+  /jenis-pangan:
+    get:
+      tags: [Jenis Pangan]
+      summary: Daftar Jenis Pangan
+      parameters:
+        - $ref: "#/components/parameters/SearchParam"
+        - $ref: "#/components/parameters/SortByParam"
+        - $ref: "#/components/parameters/SortDirParam"
+        - $ref: "#/components/parameters/PageParam"
+        - $ref: "#/components/parameters/PerPageParam"
+      responses:
+        "200":
+          description: List jenis pangan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseList"
+
+  /level-pangan:
+    get:
+      tags: [Level Pangan]
+      summary: Daftar Level Pangan
+      parameters:
+        - $ref: "#/components/parameters/SearchParam"
+        - $ref: "#/components/parameters/SortByParam"
+        - $ref: "#/components/parameters/SortDirParam"
+        - $ref: "#/components/parameters/PageParam"
+        - $ref: "#/components/parameters/PerPageParam"
+      responses:
+        "200":
+          description: List level pangan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponseList"
+
+components:
+  parameters:
+    SearchParam:
+      name: search
+      in: query
+      description: Kata kunci pencarian
+      required: false
+      schema:
+        type: string
+        example: "beras"
+    SortByParam:
+      name: sort_by
+      in: query
+      description: Field yang digunakan untuk sorting
+      required: false
+      schema:
+        type: string
+        example: "nama"
+    SortDirParam:
+      name: sort_dir
+      in: query
+      description: Arah sorting (`asc` atau `desc`)
+      required: false
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: asc
+    PageParam:
+      name: page
+      in: query
+      description: Nomor halaman untuk pagination
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        example: 1
+    PerPageParam:
+      name: per_page
+      in: query
+      description: Jumlah item per halaman
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        example: 10
+
+  schemas:
+    ApiResponseList:
+      type: object
+      properties:
+        status:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            current_page:
+              type: integer
+              example: 1
+            per_page:
+              type: integer
+              example: 10
+            total:
+              type: integer
+              example: 120
+            last_page:
+              type: integer
+              example: 12
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/Item"
+    Item:
+      type: object
+      properties:
+        kode:
+          type: integer
+          example: 10
+        nama:
+          type: string
+          example: Padi-Padian
+        created_at:
+          type: string
+          example: "25-09-2025 14:32:10"
+        updated_at:
+          type: string
+          example: "25-09-2025 14:32:10"
