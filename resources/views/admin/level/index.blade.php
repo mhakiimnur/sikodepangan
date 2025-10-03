@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2>Daftar Level Pangan</h2>
+            <h2><i class="bi bi-bar-chart-fill fs-1"></i> | Daftar Level Pangan</h2>
             <br>
         </div>
         <div class="card-body">
@@ -24,7 +24,7 @@
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered align-middle">
-                    <thead class="table-danger text-center">
+                    <thead class="table-success text-center">
                         <tr>
                             <th style="width: 150px;">Kode Level</th>
                             <th>Nama Level</th>

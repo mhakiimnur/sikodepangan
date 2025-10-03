@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h2>Daftar Komoditas Pangan</h2>
+            <h2><i class="bi bi-basket2-fill fs-1"></i> | Daftar Komoditas Pangan</h2>
             <br>
         </div>
         <div class="card-body">

@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- Custom Style -->
     <style>
@@ -115,7 +117,8 @@
             <div class="col-12">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title">🚀 Endpoint Kelompok Pangan</h5>
+                        <i class="bi bi-diagram-3-fill fs-1"></i> 
+                        <h5 class="card-title">Endpoint Kelompok Pangan</h5>
                         <p class="card-text">Mengambil daftar seluruh kelompok pangan.</p>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><strong>GET</strong></span>
@@ -130,7 +133,8 @@
             <div class="col-12">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title">🎨 Endpoint Komoditas Pangan</h5>
+                        <i class="bi bi-basket2-fill fs-1"></i>
+                        <h5 class="card-title">Endpoint Komoditas Pangan</h5>
                         <p class="card-text">Mengambil daftar seluruh komoditas pangan.</p>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><strong>GET</strong></span>
@@ -145,7 +149,8 @@
             <div class="col-12">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title">🔒 Endpoint Jenis Pangan</h5>
+                        <i class="bi bi-layers-fill fs-1"></i>
+                        <h5 class="card-title">Endpoint Jenis Pangan</h5>
                         <p class="card-text">Mengambil daftar seluruh jenis pangan.</p>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><strong>GET</strong></span>
@@ -160,7 +165,8 @@
             <div class="col-12">
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
-                        <h5 class="card-title">📊 Endpoint Level Pangan</h5>
+                        <i class="bi bi-bar-chart-fill fs-1"></i>
+                        <h5 class="card-title">Endpoint Level Pangan</h5>
                         <p class="card-text">Mengambil daftar seluruh level pangan.</p>
                         <div class="input-group mb-2">
                             <span class="input-group-text"><strong>GET</strong></span>
@@ -175,7 +181,7 @@
             <div class="col-12">
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-light d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">TABEL KODE REFERENSI PANGAN</h5>
+                        <h2 class="mb-0"><i class="bi bi-table"></i> | TABEL KODE REFERENSI PANGAN</h2>
                         {{-- Search --}}
                         <form method="GET" action="{{ route('welcome.index') }}" class="d-flex">
                             <input type="text" name="search" class="form-control form-control-sm me-2"
